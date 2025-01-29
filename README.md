@@ -1,18 +1,66 @@
-Abstract
-Title:
-Predictive Modeling for Flight Price on Domestic Travel
-Authors:
-Allison Conrey & Camryn Curtis
-Abstract details:
-Background: Flight pricing is dynamic and is easily influenced by a variety of factors including demand, seasonality, distance, and availability. This variability is particularly pronounced during peak travel periods when demand surges, such as the summer season. Accurate price predictions can empower travelers in making cost-effective travel decisions and airlines in optimizing revenue. We plan to develop a predictive model to estimate ticket prices based on key variables such as travel dates, distance, airline, and ticket characteristics.
-Problem Definition:  The project addresses two questions: when should a traveler purchase their airfare from major US cities for summer travel, and how much can they expect to pay for that airfare? The inputs to the model will include data from the Expedia dataset using features such as departure and arrival dates, travel distance, cabin class, airline, and ticket attributes (e.g. refundable, non-stop, etc).  The output will be the predicted ticket price.
-Motivation: Summer travel season is characterized by heightened demand and fluctuating prices, fostering the perfect opportunity to provide travelers with tools to guide informed purchasing decisions. Airfare price prediction lends itself well to machine learning due to a large amount of historical data, the complexity of dynamic pricing,  and various interacting variables.  The dataset we have selected is a dataset from Expedia that is approximately 31GB and captures a variety of flight characteristics essential for prediction and supervised learning.
-Literature review: The problem of airfare prediction has been widely studied using machine learning techniques to address the complexities of dynamic pricing. Chavan, Rathod, and Bobde (2024) demonstrated the effectiveness of models like Random Forest and Support Vector Machines (SVM) for predicting flight prices, emphasizing the importance of evaluating model performance across diverse metrics. Krishna et al. (2024) highlighted how feature engineering, such as incorporating ticket attributes like refundability and cabin class, improves prediction accuracy, while Guan (2024) introduced a generative AI framework leveraging temporal patterns and historical fare trends for real-time airfare forecasting. Unlike these studies, our approach emphasizes interpretable models, such as Random Forest or Linear Regression, to better understand relationships between features like travel distance, number of segments, and departure times. By focusing on simplicity and enhanced feature engineering, including segment-level departure and arrival data, our work aims to provide both accurate predictions and actionable insights for stakeholders.
-Your approach: To solve the problem of airfare prediction, we will employ machine learning techniques to build a predictive model that estimates ticket prices based on historical data and key features. Our primary approach will involve the use of Random Forest due to its robustness in handling structured data and its ability to manage both categorical and numerical features effectively. Linear Regression will also be used as a baseline model to provide interpretability and allow comparison with more complex methods.
-Success Criteria: The success of our project will be evaluated based on several key metrics. The primary metric will be Mean Absolute Error (MAE), which measures the average error between the predicted and actual ticket prices, providing a clear sense of the model's accuracy. We will also use R-squared (R²) to assess how well the model explains the variability in ticket prices, offering insight into its overall effectiveness. To ensure the model is generalizable and avoids overfitting, we will conduct cross-validation on different subsets of the data. Additionally, feature importance analysis will be performed to enhance interpretability by identifying the most influential factors driving ticket prices, enabling stakeholders to gain actionable insights. Lastly, the performance of our primary models, such as Random Forest, will be compared to baseline models like Linear Regression to validate improvements in predictive accuracy and justify the use of more complex methodologies. Together, these criteria will ensure the development of a robust, accurate, and interpretable predictive model to equip stakeholders and consumers with data-driven insights for making informed flight-purchasing decisions during peak season. 
+# Group Project 3: Predictive Modeling for Flight Price on Domestic Travel
 
-References
-Chavan, A., Rathod, I., & Bobde, S. (2024). Comparative analysis of machine learning models for accurate flight price prediction. International Journal of Innovative Science and Research Technology (IJISRT), 9(9), 2798–2805. https://doi.org/10.38124/ijisrt/IJISRT24SEP1688
-Krishna, N. G., Iswarya, G., Narasimharao, B. S., Durga Devi, B. N., & Dani, B. (2024). Predicting airline ticket prices using machine learning. International Journal of Scientific Research in Engineering and Management (IJSREM), 8(4), 1–5. https://doi.org/10.55041/IJSREM31185
-Guan, Y. (2024). Flight price prediction web-based platform: Leveraging generative AI for real-time airfare forecasting. School of Tourism, Hainan University. Received December 9, 2023; Accepted January 8, 2024; Published April 8, 2024.
+## Authors
+**Allison Conrey** - alconrey@ucsd.edu  
+**Camryn Curtis** - ccurtis@ucsd.edu  
+
+## Abstract
+
+### Background
+Flight pricing is dynamic and influenced by factors such as demand, seasonality, distance, and availability. Price variability is particularly pronounced during peak travel seasons, such as summer. Our goal is to develop a predictive model to estimate ticket prices based on key variables, including travel dates, distance, airline, and ticket characteristics. This model will empower travelers to make cost-effective travel decisions and help airlines optimize revenue strategies.
+
+### Problem Definition
+Our project addresses two key questions:
+1. **When should a traveler purchase airfare from major US cities for summer travel?**
+2. **How much can they expect to pay for that airfare?**
+
+Using the Expedia dataset, our model will incorporate features such as:
+- Departure and arrival dates
+- Travel distance
+- Cabin class
+- Airline
+- Ticket attributes (e.g., refundable, non-stop, etc.)
+
+The output of our model will be the predicted ticket price.
+
+### Motivation
+The summer travel season is marked by high demand and fluctuating prices, making it an ideal case for machine learning-based prediction models. The availability of large historical datasets allows for effective modeling of airfare pricing, leveraging various factors such as booking time, seasonality, and demand.
+
+Our dataset consists of an Expedia dataset (~31GB) with 80 million instances. To ensure computational feasibility while maintaining analytical integrity, we will focus on outbound flights from LAX, reducing the dataset to approximately **4 million instances**. This subset is sufficiently large to capture meaningful pricing patterns and interactions while being manageable for machine learning model training.
+
+### Dataset and Model Approach
+We will split our dataset into:
+- **Training Set (80%)** - For model learning
+- **Validation Set (10%)** - For hyperparameter tuning
+- **Test Set (10%)** - For final evaluation
+
+To prevent overfitting and enhance generalizability, we will apply cross-validation. Given the complexity of airfare pricing, we will explore both simple and complex modeling approaches:
+- **Baseline Model:** Linear Regression for interpretability
+- **Primary Model:** Random Forest for its robustness in handling non-linear relationships and feature interactions
+- **Feature Engineering:** Including travel distance, departure/arrival times, seasonal indicators, and ticket attributes
+
+### Literature Review
+Several studies have explored machine learning approaches for airfare prediction:
+- **Chavan, Rathod, & Bobde (2024):** Evaluated Random Forest and SVM for flight price prediction, emphasizing performance metrics.
+- **Krishna et al. (2024):** Highlighted the importance of feature engineering in improving model accuracy.
+- **Guan (2024):** Explored generative AI for real-time airfare forecasting.
+
+Building on these studies, we aim to apply similar techniques, incorporating historical fare trends, feature engineering, and model comparisons to assess the trade-offs between complexity and interpretability.
+
+### Success Criteria
+Our model's success will be measured using:
+- **Mean Absolute Error (MAE):** Evaluates prediction accuracy by measuring the average difference between predicted and actual ticket prices.
+- **R-Squared (R²):** Measures how well the model explains ticket price variability.
+- **Feature Importance Analysis:** Identifies key factors influencing airfare prices.
+- **Model Comparison:** Evaluating whether the complexity of Random Forest provides significant advantages over Linear Regression.
+
+By achieving a balance between accuracy, interpretability, and generalizability, our model will offer insights that benefit both travelers and airlines in optimizing ticket pricing strategies.
+
+## References
+1. **Chavan, A., Rathod, I., & Bobde, S. (2024).** Comparative analysis of machine learning models for accurate flight price prediction. *International Journal of Innovative Science and Research Technology (IJISRT), 9(9),* 2798–2805. [DOI](https://doi.org/10.38124/ijisrt/IJISRT24SEP1688)
+2. **Krishna, N. G., Iswarya, G., Narasimharao, B. S., Durga Devi, B. N., & Dani, B. (2024).** Predicting airline ticket prices using machine learning. *International Journal of Scientific Research in Engineering and Management (IJSREM), 8(4),* 1–5. [DOI](https://doi.org/10.55041/IJSREM31185)
+3. **Guan, Y. (2024).** Flight price prediction web-based platform: Leveraging generative AI for real-time airfare forecasting. *School of Tourism, Hainan University.* Received December 9, 2023; Accepted January 8, 2024; Published April 8, 2024.
+
+---
+This README serves as an overview of our project and will be updated with additional details as our research progresses.
 
