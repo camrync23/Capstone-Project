@@ -50,10 +50,11 @@ import joblib
 model = joblib.load('models/random_forest_model.pkl')
 
 # Generate predictions
-predictions = model.predict(X_test)
+predictions = model.predict(X_test) 
 
+```
 ### ✅ **Loading LSTM (TensorFlow/Keras):**
-
+```python
 from tensorflow.keras.models import load_model
 
 # Load trained LSTM model
@@ -61,3 +62,4 @@ model = load_model('models/lstm_model.keras')
 
 # Generate predictions
 predictions = model.predict(X_test_sequence)
+```
