@@ -5,7 +5,7 @@
 - **Source**: [Kaggle Dataset](https://www.kaggle.com/datasets/dilwong/flightprices)  
 - **GitHub Mirror**: [FlightPrices Repository](https://github.com/dilwong/FlightPrices)  
 - **Date Collected**: Between **April 16, 2022 – October 5, 2022**  
-- **Size**: 80M records (original), reduced to ~4M (LAX flights)  
+- **Size**: 80M records (original), reduced to ~4M (LAX flights in Summer)  
 - **Geographical Scope**: Major U.S. Airports  
   - Included airports: ATL, DFW, DEN, ORD, LAX, CLT, MIA, JFK, EWR, SFO, DTW, BOS, PHL, LGA, IAD, OAK  
 

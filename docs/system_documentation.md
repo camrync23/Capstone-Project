@@ -1,7 +1,7 @@
 # 🏗️ System Documentation
 
 ## 1. System Overview
-This system is designed to **predict airfare prices** (specifically for flights departing from LAX) using a structured data pipeline and multiple machine learning models. It was developed as part of the **288R, WI 2024** course under Prof. Umesh Bellur.
+This system is designed to **predict airfare prices** (specifically for flights departing from LAX in Summer) using a structured data pipeline and multiple machine learning models. It was developed as part of the **288R, WI 2024** course under Prof. Umesh Bellur.
 
 ### Purpose
 1. Enable **data-driven insights** for travelers who want to minimize airfare costs.
@@ -20,7 +20,7 @@ Below is a high-level overview of the **end-to-end workflow**, from raw data to 
 
     Raw Expedia Data (Snappy Parquet)
            ↓
-     [Data Ingestion]
+     [Data Ingestion and Filtering]
            ↓
      [Data Preprocessing & Feature Engineering]
            ↓
@@ -32,7 +32,7 @@ Below is a high-level overview of the **end-to-end workflow**, from raw data to 
 
 1. **Data Ingestion**  
    - Loads the Expedia dataset (Snappy Parquet format from DropBox provided on Kaggle).  
-   - Filters flights to only those departing from **LAX**.  
+   - Filters flights to only those departing from **LAX** and occuring in **June, July, and August (Summer)** .  
    - Export as **Parquet** (Snappy compressed) for efficient storage.  
 
 2. **Data Preprocessing**  
