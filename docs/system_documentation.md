@@ -18,7 +18,7 @@ This system is designed to **predict airfare prices** (specifically for flights 
 
 Below is a high-level overview of the **end-to-end workflow**, from raw data to producing flight-price predictions.
 
-    Raw Expedia Data (CSV)
+    Raw Expedia Data (Snappy Parquet)
            ↓
      [Data Ingestion]
            ↓
