@@ -38,7 +38,7 @@ Below is a high-level overview of the **end-to-end workflow**, from raw data to 
 2. **Data Preprocessing**  
    - **Cleaning**: Handles missing values (e.g., removes rows with missing `flightDistance`), checks for duplicates.  
    - **Encoding**: One-hot encoding for nominal categorical variables (e.g., airline, destinationAirport).  Ordinal encoding for categorical variables with inherit ordering (e.g., cabin class)
-   - **Scaling**: Min-Max scaling for numeric features (fare, distance, etc.  
+   - **Scaling**: Min-Max scaling for numeric features (fare, distance, etc.)
    - **Feature Engineering**: Creates derived features like `daysToDeparture`, `pricePerMile`, and holiday indicators (`isHoliday`).
 
 3. **Model Training**  

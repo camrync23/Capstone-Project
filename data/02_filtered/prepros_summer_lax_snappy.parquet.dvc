@@ -1,0 +1,5 @@
+outs:
+- md5: 8bfc94011b11eaa40ab68ddb70c551c2
+  size: 289262795
+  hash: md5
+  path: prepros_summer_lax_snappy.parquet
