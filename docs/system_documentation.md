@@ -75,13 +75,19 @@ To successfully operate the system, the following tools and services **must** ex
 
    | Dependency      | Version  | Purpose                       |
    |-----------------|----------|-------------------------------|
-   | pandas          | >=1.3    | Data manipulation             |
-   | numpy           | >=1.21   | Numerical computations        |
-   | scikit-learn    | >=1.0    | Classical ML models           |
-   | tensorflow      | >=2.6    | Deep learning (LSTM)          |
-   | matplotlib      | >=3.4    | Visualization                 |
-   | seaborn         | >=0.11   | Statistical graphics          |
-   | dvc            | >=2.8    | Data & model versioning (opt) |
+   | numpy          | >=2.2    | Numerical computations        |
+   | pandas         | >=2.2    | Data manipulation             |
+   | scipy          | >=1.15   | Scientific computations       |
+   | scikit-learn   | >=1.6    | Classical ML models           |
+   | tensorflow     | ==2.6    | Deep learning (LSTM)          |
+   | tensorflow-keras | ==2.6  | Keras API for TensorFlow      |
+   | matplotlib     | >=3.10   | Visualization                 |
+   | seaborn        | >=0.13   | Statistical graphics          |
+   | shap           | >=0.44   | Model interpretability        |
+   | permutation-importance | >=0.1.3 | Feature importance analysis |
+   | fastparquet    | >=2024.11 | Parquet storage               |
+   | pyarrow        | >=19.0   | Parquet storage               |
+   | cramjam        | >=2.9    | Data compression              |
 
 4. **Collaboration & Version Control**  
    - **Git** for source code versioning.  
@@ -104,21 +110,6 @@ To successfully operate the system, the following tools and services **must** ex
    1. New data is ingested or existing data is significantly updated.  
    2. Performance drops are observed in real usage.  
    3. Modifications in feature engineering or hyperparameters.  
-- **Retraining Steps**:  
-   1. Run data preprocessing scripts (e.g., `src/preprocess.py`).  
-   2. Retrain model(s) (e.g., `src/train_model.py`).  
-   3. Evaluate performance (e.g., `src/evaluate_model.py`).  
-- **Versioning**:  
-   - Tag each new model artifact (e.g., `random_forest_v2.pkl`).  
-   - Commit changes to Git and push updates.  
-   - DVC can track the new model file and data changes.
-
-### 4.3 Deployment Updates (Optional)
-- **If Deployed as an API**:  
-   1. Build a Docker image with updated code and model.  
-   2. Push to a container registry (e.g., Docker Hub).  
-   3. Use a CI/CD pipeline (GitHub Actions/Jenkins) for continuous delivery.
-- **Rolling Updates**: The previous model stays live until the new version is validated in staging or canary environment.
 
 ---
 
@@ -146,6 +137,8 @@ To successfully operate the system, the following tools and services **must** ex
 ## 6. Data Flow & Storage
 
 Below is an example file structure and an explanation of data flow:
+
+```
 
 Capstone-Project/
 │── .dvc/                        # DVC tracking for data & models
@@ -183,6 +176,8 @@ Capstone-Project/
 │── .gitignore                    # Ignore files for Git tracking
 │── README.md                     # Project overview & instructions
 │── requirements.txt               # Python dependencies
+```
+---
 
 **Data Flow**:
 1. **Raw Data** is placed in `data/raw/`.  
@@ -228,10 +223,6 @@ Each model folder or artifact should contain:
 2. **DVC Workflow (Optional)**
    - `dvc add data/raw/flight_data.csv` to track raw dataset versions.
    - `dvc add models/random_forest.pkl` to track new or updated model weights.
-
-3. **Continuous Integration (CI)**
-   - Linting and unit tests run on every pull request.
-   - Automated training scripts can run nightly or weekly.
 
 ---
 
