@@ -162,16 +162,6 @@ Capstone-Project/
 │   ├── LSTM_experiments.ipynb    # LSTM model training and tuning
 │   ├── LinearRegression.ipynb    # Linear regression experiments
 │   ├── RandomForest.ipynb        # Random forest training & hyperparameter tuning
-│── src/                          # Source code for modeling & processing
-│   ├── __init__.py               # Makes src a Python package
-│   ├── process.py                # Data processing pipeline
-│   ├── train_model.py            # Model training script
-│   ├── inference.py              # Model inference & prediction functions
-│   ├── utils.py                  # Helper functions (e.g., feature engineering, metrics)
-│── tests/                        # Unit & integration tests
-│   ├── __init__.py               # Makes tests a Python package
-│   ├── test_process.py           # Tests for data processing
-│   ├── test_train_model.py       # Tests for model training & performance
 │── .dvcignore                    # Ignore files for DVC tracking
 │── .gitignore                    # Ignore files for Git tracking
 │── README.md                     # Project overview & instructions
