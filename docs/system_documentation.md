@@ -147,31 +147,42 @@ To successfully operate the system, the following tools and services **must** ex
 
 Below is an example file structure and an explanation of data flow:
 
-    Capstone-Project/
-    ├── data/
-    │   ├── raw/                (Original CSV/Parquet from Kaggle)
-    │   ├── processed/          (Cleaned, feature-engineered data)
-    │   └── logs/               (Logs of data ingestion, cleaning steps)
-    ├── models/                 (Trained model artifacts)
-    ├── src/                    (Source code: ingestion, preprocessing, training)
-    │   ├── ingest_data.py
-    │   ├── preprocess.py
-    │   ├── train_model.py
-    │   ├── evaluate_model.py
-    │   └── utils/              (Helper scripts)
-    ├── code notebooks/         (Jupyter notebooks for EDA, preprocessing, model building)
-    │   ├── data_exploration.ipynb   
-    │   ├── dataset_preprocessing.ipynb
-    │   ├── RandomForest.ipynb
-    │   ├── LSTM.ipynb
-    │   └── LinearRegression.ipynb  
-    ├── docs/                   (Documentation including this file)
-    │   ├── dataset_documentation.md    
-    │   ├── model_documentation.md 
-    │   └── system_documentation.md  
-    ├── requirements.txt
-    ├── .gitignore
-    └── .dvc/                   (If using DVC for data and model versioning)
+Capstone-Project/
+│── .dvc/                        # DVC tracking for data & models
+│── config/                       # Configurations for pipeline & models
+│   ├── main.yaml                 # Main configuration file
+│── data/                         # Data storage and preprocessing
+│   ├── 01_raw/                   # Original raw dataset
+│   ├── 02_filtered/              # Filtered dataset (LAX, summer months)
+│   ├── 03_processed/             # Final processed dataset (ready for training)
+│── docs/                         # Project documentation
+│   ├── dataset_documentation.md  # Dataset details
+│   ├── model_documentation.md    # Model architecture & training details
+│   ├── system_documentation.md   # System & pipeline documentation
+│── models/                       # Saved models
+│   ├── linear_regression.pkl     # Linear Regression model
+│   ├── random_forest.pkl         # Random Forest model
+│   ├── lstm_model.h5             # LSTM model
+│── notebooks/                    # Jupyter Notebooks for experiments
+│   ├── data_exploration.ipynb    # Initial exploratory analysis
+│   ├── dataset_preprocessing.ipynb # Data cleaning & transformation
+│   ├── LSTM_experiments.ipynb    # LSTM model training and tuning
+│   ├── LinearRegression.ipynb    # Linear regression experiments
+│   ├── RandomForest.ipynb        # Random forest training & hyperparameter tuning
+│── src/                          # Source code for modeling & processing
+│   ├── __init__.py               # Makes src a Python package
+│   ├── process.py                # Data processing pipeline
+│   ├── train_model.py            # Model training script
+│   ├── inference.py              # Model inference & prediction functions
+│   ├── utils.py                  # Helper functions (e.g., feature engineering, metrics)
+│── tests/                        # Unit & integration tests
+│   ├── __init__.py               # Makes tests a Python package
+│   ├── test_process.py           # Tests for data processing
+│   ├── test_train_model.py       # Tests for model training & performance
+│── .dvcignore                    # Ignore files for DVC tracking
+│── .gitignore                    # Ignore files for Git tracking
+│── README.md                     # Project overview & instructions
+│── requirements.txt               # Python dependencies
 
 **Data Flow**:
 1. **Raw Data** is placed in `data/raw/`.  
