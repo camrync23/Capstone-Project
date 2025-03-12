@@ -78,7 +78,7 @@ To ensure consistency and improve model performance:
 ## **Outlier Handling**
 - Airfare pricing includes extreme values (e.g., last-minute bookings, premium tickets), requiring careful outlier handling.
 - **Different Outlier Strategies for Different Models**:
-  - For **Linear Regression** and **LSTM**, **Interquartile Range (IQR) capping** was applied at multiple thresholds.
+  - For **Linear Regression**  **Interquartile Range (IQR) capping** was applied.
   - Both **capped and uncapped datasets** were tested to evaluate the impact on preserving meaningful pricing variations.
   - **Random Forest**, being more robust to outliers, was tested on the original dataset without capping.
 
