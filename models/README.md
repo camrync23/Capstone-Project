@@ -14,6 +14,13 @@ This directory contains trained machine learning models for predicting airfare p
 
 Each trained model is stored in the `models/` directory and can be loaded for inference.
 
+To verify the accuracy of each model, you can compute Mean Absolute Error (MAE) and R² Score using the saved test data.
+
+📌 For confirming reproducibility, run the `Evaluate_Models.ipynb` notebook.
+This notebook loads each model, applies test data, generates predictions, and computes evaluation metrics.
+
+If you do NOT wish to use the `Evaluate_Models.ipynb` notebook, you can use the guidelines below for loading and evaluating models. 
+
 ### ✅ **Loading and Evaluating Random Forest Linear Regression (Scikit-Learn)**
 1. Load the test data from `test_data/random_forest/`
 2. Load the trained `random_forest.pkl` model
