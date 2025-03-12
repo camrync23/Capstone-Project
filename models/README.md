@@ -10,28 +10,92 @@ This directory contains trained machine learning models for predicting airfare p
 | **Linear Regression (Baseline Model)** | `linear_regression_model.pkl` | Scikit-learn | Simple interpretable benchmark |
 | **LSTM (Sequential Model)** | `lstm_model.keras` | TensorFlow/Keras | Attempts to capture sequential fare trends |
 
-## 🚀 How to Load the Models
+## 🚀 How to Load and Evaluate the Models
 
-### ✅ **Loading Random Forest or Linear Regression (Scikit-Learn)**
+Each trained model is stored in the `models/` directory and can be loaded for inference.
+
+### ✅ **Loading and Evaluating Random Forest Linear Regression (Scikit-Learn)**
+1. Load the test data from `test_data/random_forest/`
+2. Load the trained `random_forest.pkl` model
+3. Generate predictions and compute evaluation metrics
+
 ```python
 import joblib
+from sklearn.metrics import mean_absolute_error, r2_score
+
+# Load test data
+X_test = joblib.load("test_data/RandomForest/X_test_rf.pkl")
+y_test = joblib.load("test_data/RandomForest/y_test_rf.pkl")
 
 # Load trained model
-model = joblib.load('models/random_forest_model.pkl')
+rf_model = joblib.load("models/random_forest.pkl")
 
-# Generate predictions
-predictions = model.predict(X_test)
+# Make predictions
+predictions = rf_model.predict(X_test)
+
+# Compute evaluation metrics
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+print(f"Random Forest - MAE: {mae}")
+print(f"Random Forest - R² Score: {r2}")
+
 ```
 
-### ✅ **Loading LSTM (TensorFlow/Keras)**
+## ✅ **Loading and Evaluating Linear Regression (Scikit-Learn)**
+1. Load the test data from `test_data/LinearRegression/`
+2. Load the trained `linear_regression.pkl` model
+3. Generate predictions and compute evaluation metrics
+
 ```python
-from tensorflow.keras.models import load_model
+# Load test data
+X_test = joblib.load("test_data/LinearRegression/X_test_lr.pkl")
+y_test = joblib.load("test_data/LinearRegression/y_test_lr.pkl")
 
 # Load trained model
-model = load_model('models/lstm_model.keras')
+lr_model = joblib.load("models/linear_regression.pkl")
 
-# Generate predictions
-predictions = model.predict(X_test_sequence)
+# Make predictions
+predictions = lr_model.predict(X_test)
+
+# Compute evaluation metrics
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+print(f"Linear Regression - MAE: {mae}")
+print(f"Linear Regression - R² Score: {r2}")
+
+```
+
+### ✅ **Loading and Evaluating LSTM (TensorFlow/Keras)**
+### ✅ Evaluating LSTM Model
+1. Load the test data from `test_data/lstm/`
+2. Load the trained `lstm_model.h5` model
+3. Compute evaluation metrics
+
+```python
+import numpy as np
+import joblib
+from tensorflow.keras.models import load_model
+from sklearn.metrics import mean_absolute_error, r2_score
+
+# Load test data
+X_test = np.load("test_data/LSTM/X_test_lstm.npy")
+y_test = np.load("test_data/LSTM/y_test_lstm.npy")
+
+# Load trained LSTM model
+lstm_model = load_model("models/lstm_model.h5")
+
+# Make predictions
+predictions = lstm_model.predict(X_test_scaled).flatten()
+
+# Compute evaluation metrics
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+print(f"LSTM - MAE: {mae}")
+print(f"LSTM - R² Score: {r2}")
+
 ```
 
 ## 📊 **Model Performance Summary**

@@ -148,15 +148,25 @@ Capstone-Project/
 │   ├── 01_raw/                   # Original raw dataset
 │   ├── 02_filtered/              # Filtered dataset (LAX, summer months)
 │   ├── 03_processed/             # Final processed dataset (ready for training)
+│── test_data/                    # Dedicated folder for test data (ensuring reproducibility)
+│   ├── RandomForest/             # Test data specifically for the Random Forest model
+│   │   ├── X_test_rf.pkl         # Feature test set for Random Forest
+│   │   ├── y_test_rf.pkl         # Target variable test set for Random Forest
+│   ├── LinearRegression/         # Test data specifically for the Linear Regression model
+│   │   ├── X_test_lr.pkl         # Feature test set for Linear Regression
+│   │   ├── y_test_lr.pkl         # Target variable test set for Linear Regression
+│   ├── LSTM/                     # Test data specifically for the LSTM model
+│   │   ├── X_test_lstm.npy       # Feature test set for LSTM (NumPy format for 3D tensors)
+│   │   ├── y_test_lstm.npy       # Target variable test set for LSTM
 │── docs/                         # Project documentation
 │   ├── dataset_documentation.md  # Dataset details
 │   ├── model_documentation.md    # Model architecture & training details
 │   ├── system_documentation.md   # System & pipeline documentation
-│── models/                       # Saved models
+│── models/                       # Saved trained models for reproducibility
 │   ├── linear_regression.pkl     # Linear Regression model
 │   ├── random_forest.pkl         # Random Forest model
-│   ├── lstm_model.h5             # LSTM model
-│── notebooks/                    # Jupyter Notebooks for experiments
+│   ├── lstm_model.h5             # LSTM model (Keras/TensorFlow format)
+│── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
 │   ├── data_exploration.ipynb    # Initial exploratory analysis
 │   ├── dataset_preprocessing.ipynb # Data cleaning & transformation
 │   ├── LSTM_experiments.ipynb    # LSTM model training and tuning
@@ -166,6 +176,7 @@ Capstone-Project/
 │── .gitignore                    # Ignore files for Git tracking
 │── README.md                     # Project overview & instructions
 │── requirements.txt               # Python dependencies
+
 ```
 ---
 
