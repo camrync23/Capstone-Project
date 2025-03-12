@@ -1,4 +1,4 @@
-# 📊 Dataset Documentation
+# Dataset Documentation
 
 ## **Dataset Overview**
 - **Dataset Name**: Expedia Flight Prices  
@@ -117,7 +117,7 @@ To improve predictive accuracy, several new features were engineered:
 ## **Usage License**
 - **License**: [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 - **Expected Update Frequency**: **Never (Static Dataset)**.
-
+- **Reproducibility**: Data pipeline scripts available in /code notebooks
 ---
 
 ## **References**
