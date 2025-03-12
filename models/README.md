@@ -5,16 +5,27 @@ This directory contains trained and serialized machine learning models used for 
 ---
 ## 📊 Dataset Used
 
-- **Source:** Historical airfare pricing data from Kaggle.
-- **Size:** XX,XXX rows and XX columns.
-- **Key Features:**
-  - `pricePerMile`: Cost per mile traveled.
-  - `fareLag_1`: Previous day's airfare price.
-  - `totalTravelDistance`: Total flight distance.
-- **Preprocessing:**
-  - **Log transformation** applied to `totalFare` to reduce skewness.
-  - **Categorical features** encoded using frequency encoding.
-  - **Highly correlated features** removed (correlation > 0.85).
+- **Source:** [Expedia Flight Prices Dataset (Kaggle)](https://www.kaggle.com/datasets/dilwong/flightprices)  
+- **Scope:** Flights departing from **LAX (Los Angeles International Airport)** during peak **summer months (June – August)**  
+- **Size:** **~3.8 million instances** (filtered from ~80 million records)  
+
+For full details on dataset collection, features, and preprocessing steps, see the **[Dataset Documentation](../docs/dataset_documentation.md).**
+
+### 🔹 **Key Features for Model Training**
+- `pricePerMile` – Normalized cost per mile traveled.  
+- `fareLag_1` – Airfare price from **one day prior** (captures short-term fluctuations).  
+- `totalTravelDistance` – Total flight distance in miles.  
+- `daysToDeparture` – Days between booking and flight date.  
+- `totalLayoverTime` – Sum of layover durations (in minutes).  
+- `isHoliday` – Indicator for flights on/near major U.S. holidays.  
+
+### 🛠️ **Preprocessing (Summary)**
+- **Log transformation** applied to `totalFare` to handle skewness.  
+- **Categorical features** encoded (one-hot for nominal, ordinal for ranked).  
+- **Feature scaling:** Min-Max Scaling for numerical variables.  
+- **Feature selection:** Based on **SHAP Analysis** & **Permutation Importance**.  
+
+👉 **For a full breakdown of data cleaning, feature engineering, and outlier handling, refer to** [Dataset Documentation](../docs/dataset_documentation.md).
 
 ---
 
