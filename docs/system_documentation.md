@@ -159,7 +159,7 @@ Below is an example file structure and an explanation of data flow:
     │   ├── train_model.py
     │   ├── evaluate_model.py
     │   └── utils/              (Helper scripts)
-    ├── experiments/            (Jupyter notebooks for EDA, preprocessing, model building)
+    ├── code notebooks/         (Jupyter notebooks for EDA, preprocessing, model building)
     │   ├── data_exploration.ipynb   
     │   ├── dataset_preprocessing.ipynb
     │   ├── RandomForest.ipynb
