@@ -29,13 +29,13 @@ The repository includes three models, each serving a distinct purpose:
     - Selected for its high accuracy, ability to handle nonlinear relationships, and robustness to outliers.
     - Serves as the primary prediction model for airfare prices.
  - **Structure & Parameters:**
-  - **Number of Trees (`n_estimators`)**: 100
+  - **Number of Trees (`n_estimators`)**: 50
   - **Max Depth (`max_depth`)**: 20
-  - **Min Samples Split (`min_samples_split`)**: 5
+  - **Min Samples Split (`min_samples_split`)**: 10
   - **Min Samples Leaf (`min_samples_leaf`)**: 2
   - **Feature Selection:** Used **permutation importance** and **SHAP analysis**.
 #### 📊 **Performance**
-  - **Mean Absolute Error (MAE):** `0.0110`
+  - **Mean Absolute Error (MAE):** `0.0073`
   - **R² Score:** `0.9997`
 **- **Features used:** **
   - Feature selection based on permutation importance and SHAP analysis.
@@ -107,19 +107,43 @@ The repository includes three models, each serving a distinct purpose:
     - Additional data and feature engineering could significantly improve model performance.
 .
 ---
+## 🔍 Feature & Hyperparameter Tuning
 
-## 🔄 Model Versioning
-- **Current Version:** `v1.0`
-- **Changes from Previous Versions:**
-  - **Feature selection refined** (Permutation importance + SHAP added).
-  - **Hyperparameter tuning improved** for Random Forest.
-  - **More historical data added** for LSTM.
-- **Planned Future Updates:**
-  - Expand **LSTM training dataset**.
-  - Experiment with **XGBoost and Gradient Boosting**.
+| Model              | Tuning Method |
+|--------------------|--------------|
+| **Random Forest**  | Used `RandomizedSearchCV` to optimize `n_estimators`, `max_depth`, `min_samples_split` |
+| **Linear Regression** | Used `GridSearchCV` to optimize `alpha` for Ridge & Lasso |
+| **LSTM**          | Tuned `LSTM units`, `dropout rate`, and `batch size` through manual hyperparameter search |
 
 ---
 
+## 🔄 Model Evaluation & Testing
+
+| Model                            | Train-Test Split                 | Evaluation Metrics |
+|----------------------------------|---------------------------------|--------------------|
+| **Random Forest & Linear Regression** | **80% training, 10% validation, 10% test** | **MAE, R² Score** |
+| **LSTM**                         | **Time-series split (80%-10%-10%)** | **MAE, R² Score** |
+
+---
+
+## 🔄 Model Versioning
+
+### **Current Version: `v1.1`**
+
+#### 🔹 **Changes from Previous Versions**
+- **Random Forest**
+  - Updated `n_estimators=50` (**previously 100**) for better performance.
+  - Refined feature selection using **SHAP analysis**.
+- **Linear Regression**
+  - Optimized **Ridge & Lasso** hyperparameters using **GridSearchCV**.
+- **LSTM**
+  - Trained on **2M rows** (**previously full dataset**).
+  - Further optimized **model architecture**.
+
+#### 🔹 **Planned Future Updates**
+- Expand **LSTM training dataset** for better sequential learning.
+- Experiment with **XGBoost & Gradient Boosting** as alternatives to **Random Forest**.
+---
 ## 🚀 How to Load the Models
 
 ### ✅ **Loading Random Forest or Linear Regression (scikit-learn):**
