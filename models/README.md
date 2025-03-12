@@ -18,7 +18,7 @@ This directory contains trained and serialized machine learning models used for 
 
 ---
 
-## Included Models
+## 📌 Included Models
 
 The repository includes three models, each serving a distinct purpose:
 
@@ -27,7 +27,7 @@ The repository includes three models, each serving a distinct purpose:
 - **Framework:** scikit-learn
 - **Purpose:** 
     - Selected for its high accuracy, ability to handle nonlinear relationships, and robustness to outliers.
-    - Used as the primary prediction model for airfare prices.
+    - Serves as the primary prediction model for airfare prices.
  - **Structure & Parameters:**
   - **Number of Trees (`n_estimators`)**: 100
   - **Max Depth (`max_depth`)**: 20
@@ -62,15 +62,34 @@ The repository includes three models, each serving a distinct purpose:
 - **Purpose:**
    - Serves as a simple and interpretable baseline comparison.
     - Helps assess whether a simpler model can perform well against more complex models.
- - **Structure & Parameters:**  
-    - Standard Ordinary Least Squares (OLS) regression.
-#### 📊 **Performance**
-  - **Mean Absolute Error (MAE):** `0.2250`
-  - **R² Score:** `0.4167`
+#### 🔹 **Model Structure & Variants**
+- **Ordinary Least Squares (OLS) Regression** (Baseline model)
+- **Ridge Regression** (Handles multicollinearity, optimized with `alpha=10`)
+- **Lasso Regression** (Feature selection, `alpha=0.01`)
+- **Polynomial Regression (Degree=2)** (Captures some nonlinear relationships)
+- **Feature Selection with Recursive Feature Elimination (RFE)**  
+  - **Top 5 Selected Features:**
+    - `pricePerMile`
+    - `postHolidayFlight`
+    - `totalLayoverTime`
+    - `durationToDistanceRatio`
+    - `cabin_classes_ordinal`
+
+#### 📊 **Performance Comparison**
+| Model Type                       | Mean Absolute Error (MAE) | R² Score |
+|----------------------------------|-------------------------|---------:|
+| **Ordinary Least Squares (OLS)** | `0.2250`                | `0.4167` |
+| **Ridge Regression (`alpha=10`)** | `0.2250`                | `0.4166` |
+| **Lasso Regression (`alpha=0.01`)** | `0.2927`                | `0.1158` |
+| **Polynomial Regression (Degree=2)** | `0.2169`                | `0.4801` |
+| **Ridge (Top 5 Selected Features)** | `0.2254`                | `0.4149` |
+
 #### ⚠️ **Constraints & Limitations**
 - **Struggles with nonlinearities** in airfare pricing data.  
-- **Highly sensitive to outliers**, leading to reduced predictive power.  
-- **Performed significantly worse than Random Forest**, indicating that airfare pricing patterns are not well captured by a simple linear model.
+- **Highly sensitive to outliers**, which **Ridge/Lasso partially address**.  
+- **Polynomial Regression improves performance** but **adds complexity**.  
+- **RFE shows that only 5 key features contribute meaningfully**, which may help simplify the model.
+
 ---
 
 ### ✅ 3. **LSTM (Long Short-Term Memory Neural Network)**
