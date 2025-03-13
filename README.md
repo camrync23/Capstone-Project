@@ -127,9 +127,18 @@ This project is for educational purposes and follows an open-source approach.
 
 
 ## References
-1. **Chavan, A., Rathod, I., & Bobde, S. (2024).** Comparative analysis of machine learning models for accurate flight price prediction. *International Journal of Innovative Science and Research Technology (IJISRT), 9(9),* 2798–2805. [DOI](https://doi.org/10.38124/ijisrt/IJISRT24SEP1688)
-2. **Krishna, N. G., Iswarya, G., Narasimharao, B. S., Durga Devi, B. N., & Dani, B. (2024).** Predicting airline ticket prices using machine learning. *International Journal of Scientific Research in Engineering and Management (IJSREM), 8(4),* 1–5. [DOI](https://doi.org/10.55041/IJSREM31185)
-3. **Guan, Y. (2024).** Flight price prediction web-based platform: Leveraging generative AI for real-time airfare forecasting. *School of Tourism, Hainan University.* Received December 9, 2023; Accepted January 8, 2024; Published April 8, 2024.
+- Breiman, L. (2001). Random forests. *Machine Learning, 45*(1), 5-32.
+- Chavan, A., Rathod, I., & Bobde, S. (2024). Comparative analysis of machine learning models for accurate flight price prediction. *International Journal of Innovative Science and Research Technology (IJISRT), 9(9),* 2798–2805. [DOI](https://doi.org/10.38124/ijisrt/IJISRT24SEP1688)
+- Etzioni, O., Tuchinda, R., Knoblock, C. A., & Yates, A. (2003). To buy or not to buy: Mining airfare data to minimize ticket purchase price. *Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*.
+- Guan, X. (2024). Flight price prediction web-based platform: Leveraging generative AI for real-time airfare forecasting. *School of Tourism, Hainan University.* Received December 9, 2023; Accepted January 8, 2024; Published April 8, 2024.
+- Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. *Neural Computation, 9*(8), 1735-1780.
+- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). *An introduction to statistical learning: With applications in R*. Springer. [https://doi.org/10.1007/978-1-4614-7138-7](https://doi.org/10.1007/978-1-4614-7138-7)
+- Krishna, N. G., Iswarya, G., Narasimharao, B. S., Durga Devi, B. N., & Dani, B. (2024). Predicting airline ticket prices using machine learning. *International Journal of Scientific Research in Engineering and Management (IJSREM), 8(4),* 1–5. [DOI](https://doi.org/10.55041/IJSREM31185)
+- Molnar, C. (2020). *Interpretable machine learning: A guide for making black box models explainable*. Springer. [https://doi.org/10.1007/978-3-030-30311-8](https://doi.org/10.1007/978-3-030-30311-8)
+- Sharma, N., Singh, M., & Jain, R. (2024). Evaluating the effectiveness of LSTM networks for airfare prediction: A time-series analysis. *Journal of Machine Learning for Economics, 22*(1), 75-89.
+- Tibshirani, R. (1996). Regression shrinkage and selection via the Lasso. *Journal of the Royal Statistical Society: Series B, 58*(1), 267-288.
+- Wang, W., Chen, P., Huang, Y., & Wang, X. (2019). A framework for airfare price prediction: A machine learning approach. *Proceedings of the 2019 IEEE International Conference on Information Reuse and Integration (IRI)*, 127-134. UMKC Library.
+
 
 ---
 This README serves as an overview of our project and will be updated with additional details as our research progresses.
