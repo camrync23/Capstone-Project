@@ -163,19 +163,22 @@ Capstone-Project/
 │   ├── model_documentation.md    # Model architecture & training details
 │   ├── system_documentation.md   # System & pipeline documentation
 │── models/                       # Saved trained models for reproducibility
+│   ├── EvaluateModels.ipynb      # Notebook that can be used to reproduce results from trained models 
 │   ├── linear_regression.pkl     # Linear Regression model
-│   ├── random_forest.pkl         # Random Forest model
+│   ├── random_forest_download.py  # Python file used to download trained random forest model 
 │   ├── lstm_model.h5             # LSTM model (Keras/TensorFlow format)
 │── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
-│   ├── data_exploration.ipynb    # Initial exploratory analysis
-│   ├── dataset_preprocessing.ipynb # Data cleaning & transformation
-│   ├── LSTM_experiments.ipynb    # LSTM model training and tuning
+│   ├── DataExploration.ipynb     # Initial exploratory analysis
+│   ├── DataPreprocessing.ipynb   # Data cleaning & transformation
+│   ├── LSTMv1.ipynb              # LSTM model training and tuning version 1
+│   ├── LSTMv2.ipynb              # LSTM model training and tuning version 2
 │   ├── LinearRegression.ipynb    # Linear regression experiments
-│   ├── RandomForest.ipynb        # Random forest training & hyperparameter tuning
+│   ├── RandomForestv1.ipynb      # Random forest training & hyperparameter tuning version 1
+│   ├── RandomForestv2.ipynb      # Random forest training & hyperparameter tuning version 2
 │── .dvcignore                    # Ignore files for DVC tracking
 │── .gitignore                    # Ignore files for Git tracking
 │── README.md                     # Project overview & instructions
-│── requirements.txt               # Python dependencies
+│── requirements.txt              # Python dependencies
 
 ```
 ---

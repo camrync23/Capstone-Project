@@ -1,18 +1,110 @@
-# Group Project 3: Predictive Modeling for Flight Price on Domestic Travel
+# ✈️ Capstone Project: Dynamic Flight Price Prediction & Fare Optimization
 
-## Authors
-**Allison Conrey** - alconrey@ucsd.edu  
-**Camryn Curtis** - ccurtis@ucsd.edu  
+## 📌 Overview
+This project aims to predict airfare prices for flights departing from **Los Angeles International Airport (LAX)** during peak **summer months (June–August)**. The goal is to develop a machine learning model that helps passengers identify the best time to book flights, using **historical pricing data and key influencing factors** such as seasonality, airline, route, demand, and time-to-departure.
 
-## Abstract
+## 📂 Repository Structure
+```
+Capstone-Project/
+│── .dvc/                        # DVC tracking for data & models
+│── config/                       # Configurations for pipeline & models
+│   ├── main.yaml                 # Main configuration file
+│── data/                         # Data storage and preprocessing
+│   ├── 01_raw/                   # Original raw dataset
+│   ├── 02_filtered/              # Filtered dataset (LAX, summer months)
+│   ├── 03_processed/             # Final processed dataset (ready for training)
+│── test_data/                    # Dedicated folder for test data (ensuring reproducibility)
+│   ├── RandomForest/             # Test data specifically for the Random Forest model
+│   │   ├── X_test_rf.pkl         # Feature test set for Random Forest
+│   │   ├── y_test_rf.pkl         # Target variable test set for Random Forest
+│   ├── LinearRegression/         # Test data specifically for the Linear Regression model
+│   │   ├── X_test_lr.pkl         # Feature test set for Linear Regression
+│   │   ├── y_test_lr.pkl         # Target variable test set for Linear Regression
+│   ├── LSTM/                     # Test data specifically for the LSTM model
+│   │   ├── X_test_lstm.npy       # Feature test set for LSTM (NumPy format for 3D tensors)
+│   │   ├── y_test_lstm.npy       # Target variable test set for LSTM
+│── docs/                         # Project documentation
+│   ├── dataset_documentation.md  # Dataset details
+│   ├── model_documentation.md    # Model architecture & training details
+│   ├── system_documentation.md   # System & pipeline documentation
+│── models/                       # Saved trained models for reproducibility
+│   ├── EvaluateModels.ipynb      # Notebook that can be used to reproduce results from trained models 
+│   ├── linear_regression.pkl     # Linear Regression model
+│   ├── random_forest_download.py  # Python file used to download trained random forest model 
+│   ├── lstm_model.h5             # LSTM model (Keras/TensorFlow format)
+│── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
+│   ├── DataExploration.ipynb     # Initial exploratory analysis
+│   ├── DataPreprocessing.ipynb   # Data cleaning & transformation
+│   ├── LSTMv1.ipynb              # LSTM model training and tuning version 1
+│   ├── LSTMv2.ipynb              # LSTM model training and tuning version 2
+│   ├── LinearRegression.ipynb    # Linear regression experiments
+│   ├── RandomForestv1.ipynb      # Random forest training & hyperparameter tuning version 1
+│   ├── RandomForestv2.ipynb      # Random forest training & hyperparameter tuning version 2
+│── .dvcignore                    # Ignore files for DVC tracking
+│── .gitignore                    # Ignore files for Git tracking
+│── README.md                     # Project overview & instructions
+│── requirements.txt              # Python dependencies
+```
+
+## 🚀 How to Run the Project
+
+### 1️⃣ **Set Up the Environment**
+Ensure all dependencies are installed:
+```sh
+pip install -r requirements.txt
+```
+
+### 2️⃣ **Download Necessary Files**
+Since the Random Forest model is too large for GitHub, it is stored in Google Drive. Run the following script to download and extract the model:
+```sh
+python models/random_forest_download.py
+```
+
+### 3️⃣ **Run the Model Evaluation**
+Use the provided notebook or script to evaluate the models:
+```sh
+# Run the evaluation script (CLI version)
+python evaluate_models.py
+```
+Or open the Jupyter Notebook:
+```sh
+jupyter notebook notebooks/EvaluateModels.ipynb
+```
+
+## 📊 Available Models
+
+| Model                        | File                      | Framework          | Purpose                                   |
+|------------------------------|---------------------------|--------------------|-------------------------------------------|
+| Random Forest (Primary Model) | random_forest.pkl (downloaded) | Scikit-learn    | Best-performing model for fare prediction |
+| Linear Regression (Baseline Model) | linear_regression.pkl | Scikit-learn     | Simple interpretable benchmark           |
+| LSTM (Sequential Model)      | lstm_model.h5            | TensorFlow/Keras  | Attempts to capture sequential fare trends |
+
+## 📊 Model Performance Summary
+
+| Model           | MAE    | R² Score |
+|----------------|--------|----------|
+| Random Forest  | 0.0073 | 0.9997   |
+| Linear Regression | 0.2250 | 0.4167   |
+| LSTM           | 120.37 | -0.0457  |
+
+## 📖 Documentation
+- **Dataset Documentation**
+- **Model Training Details**
+- **System Pipeline Overview**
+
+## 📌 Authors
+- **Allison Conrey** - [alconrey@ucsd.edu](mailto:alconrey@ucsd.edu)
+- **Camryn Curtis** - [ccurtis@ucsd.edu](mailto:ccurtis@ucsd.edu)
+
+## 📌 Project Abstract
 
 ### Background
-Flight pricing is dynamic and influenced by factors such as demand, seasonality, distance, and availability. Price variability is particularly pronounced during peak travel seasons, such as summer. Our goal is to develop a predictive model to estimate ticket prices based on key variables, including travel dates, distance, airline, and ticket characteristics. This model will empower travelers to make cost-effective travel decisions and help airlines optimize revenue strategies.
+Flight pricing is dynamic and influenced by factors such as demand, seasonality, distance, and availability. Price variability is particularly pronounced during peak travel seasons, such as summer. Our goal is to develop a predictive model to estimate ticket prices based on key variables, including travel dates, distance, airline, and ticket characteristics.
 
 ### Problem Definition
 Our project addresses two key questions:
-1. **When should a traveler purchase airfare from major US cities for summer travel?**
-2. **How much can they expect to pay for that airfare?**
+1. Can we predict airfare prices to assist travelers in knowing the best time to book?
+2. What features contribute to airfare pricing?
 
 Using the Expedia dataset, our model will incorporate features such as:
 - Departure and arrival dates
@@ -23,38 +115,16 @@ Using the Expedia dataset, our model will incorporate features such as:
 
 The output of our model will be the predicted ticket price.
 
-### Motivation
-The summer travel season is marked by high demand and fluctuating prices, making it an ideal case for machine learning-based prediction models. The availability of large historical datasets allows for effective modeling of airfare pricing, leveraging various factors such as booking time, seasonality, and demand.
-
-Our dataset consists of an Expedia dataset (~31GB) with 80 million instances. To ensure computational feasibility while maintaining analytical integrity, we will focus on outbound flights from LAX, reducing the dataset to approximately **4 million instances**. This subset is sufficiently large to capture meaningful pricing patterns and interactions while being manageable for machine learning model training.
-
-### Dataset and Model Approach
-We will split our dataset into:
-- **Training Set (80%)** - For model learning
-- **Validation Set (10%)** - For hyperparameter tuning
-- **Test Set (10%)** - For final evaluation
-
-To prevent overfitting and enhance generalizability, we will apply cross-validation. Given the complexity of airfare pricing, we will explore both simple and complex modeling approaches:
-- **Baseline Model:** Linear Regression for interpretability
-- **Primary Model:** Random Forest for its robustness in handling non-linear relationships and feature interactions
-- **Feature Engineering:** Including travel distance, departure/arrival times, seasonal indicators, and ticket attributes
-
-### Literature Review
-Several studies have explored machine learning approaches for airfare prediction:
-- **Chavan, Rathod, & Bobde (2024):** Evaluated Random Forest and SVM for flight price prediction, emphasizing performance metrics.
-- **Krishna et al. (2024):** Highlighted the importance of feature engineering in improving model accuracy.
-- **Guan (2024):** Explored generative AI for real-time airfare forecasting.
-
-Building on these studies, we aim to apply similar techniques, incorporating historical fare trends, feature engineering, and model comparisons to assess the trade-offs between complexity and interpretability.
-
 ### Success Criteria
 Our model's success will be measured using:
-- **Mean Absolute Error (MAE):** Evaluates prediction accuracy by measuring the average difference between predicted and actual ticket prices.
-- **R-Squared (R²):** Measures how well the model explains ticket price variability.
-- **Feature Importance Analysis:** Identifies key factors influencing airfare prices.
-- **Model Comparison:** Evaluating whether the complexity of Random Forest provides significant advantages over Linear Regression.
+- **Mean Absolute Error (MAE)** for prediction accuracy
+- **R-Squared (R²)** to measure variance explanation
+- **Feature Importance Analysis** to identify key drivers of price
+- **Comparison between Linear Regression, LSTM, and Random Forest** to assess trade-offs between interpretability and performance
 
-By achieving a balance between accuracy, interpretability, and generalizability, our model will offer insights that benefit both travelers and airlines in optimizing ticket pricing strategies.
+## 📜 License
+This project is for educational purposes and follows an open-source approach.
+
 
 ## References
 1. **Chavan, A., Rathod, I., & Bobde, S. (2024).** Comparative analysis of machine learning models for accurate flight price prediction. *International Journal of Innovative Science and Research Technology (IJISRT), 9(9),* 2798–2805. [DOI](https://doi.org/10.38124/ijisrt/IJISRT24SEP1688)

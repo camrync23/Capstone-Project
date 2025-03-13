@@ -23,8 +23,9 @@ If you do NOT wish to use the `Evaluate_Models.ipynb` notebook, you can use the 
 
 ### ✅ **Loading and Evaluating Random Forest Linear Regression (Scikit-Learn)**
 1. Load the test data from `test_data/random_forest/`
-2. Load the trained `random_forest.pkl` model
-3. Generate predictions and compute evaluation metrics
+2. Run the `random_forest_download.py` to download trained model  
+3. Load the trained `random_forest.pkl` model
+4. Generate predictions and compute evaluation metrics
 
 ```python
 import joblib
