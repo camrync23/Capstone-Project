@@ -6,7 +6,7 @@ This project aims to predict airfare prices for flights departing from **Los Ang
 ## 📂 Repository Structure
 ```
 Capstone-Project/
-│── .dvc/                        # DVC tracking for data & models
+│── .dvc/                         # DVC tracking for data & models
 │── config/                       # Configurations for pipeline & models
 │   ├── main.yaml                 # Main configuration file
 │── data/                         # Data storage and preprocessing
@@ -30,8 +30,9 @@ Capstone-Project/
 │── models/                       # Saved trained models for reproducibility
 │   ├── EvaluateModels.ipynb      # Notebook that can be used to reproduce results from trained models 
 │   ├── linear_regression.pkl     # Linear Regression model
-│   ├── random_forest_download.py  # Python file used to download trained random forest model 
+│   ├── random_forest_download.py # Python file used to download trained random forest model 
 │   ├── lstm_model.h5             # LSTM model (Keras/TensorFlow format)
+│   ├── README.md                 # README provided detailing how to use the models and evaluation notebook
 │── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
 │   ├── DataExploration.ipynb     # Initial exploratory analysis
 │   ├── DataPreprocessing.ipynb   # Data cleaning & transformation
@@ -77,11 +78,12 @@ jupyter notebook notebooks/EvaluateModels.ipynb
 
 ## 📊 Model Performance Summary
 
-| Model           | MAE    | R² Score |
-|----------------|--------|----------|
-| Random Forest  | 0.0081 | 0.9997   |
-| Linear Regression | 0.2250 | 0.4167   |
-| LSTM           | 120.37 | -0.0457  |
+| Model            | RMSE   | MAE    | R² Score |
+|-----------------|--------|--------|----------|
+| Random Forest   | 0.0081 | 0.0110 | 0.9997   |
+| Linear Regression | N/A    | 0.2250 | 0.4167   |
+| LSTM            | N/A    | 120.37 | -0.0457  |
+
 
 ## 📖 Documentation
 - **Dataset Documentation**

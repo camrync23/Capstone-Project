@@ -165,8 +165,9 @@ Capstone-Project/
 │── models/                       # Saved trained models for reproducibility
 │   ├── EvaluateModels.ipynb      # Notebook that can be used to reproduce results from trained models 
 │   ├── linear_regression.pkl     # Linear Regression model
-│   ├── random_forest_download.py  # Python file used to download trained random forest model 
+│   ├── random_forest_download.py # Python file used to download trained random forest model 
 │   ├── lstm_model.h5             # LSTM model (Keras/TensorFlow format)
+│   ├──README.md                  #READ ME for using and evaluating models for reproducibility 
 │── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
 │   ├── DataExploration.ipynb     # Initial exploratory analysis
 │   ├── DataPreprocessing.ipynb   # Data cleaning & transformation

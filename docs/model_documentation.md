@@ -34,7 +34,8 @@ For full details on dataset collection, features, and preprocessing steps, see t
 The repository includes three models, each serving a distinct purpose:
 
 ### ✅ 1. **Random Forest Regression (Primary Model)**
-- **File:** `random_forest_model.pkl`
+- **File Download** `random_forest_download.py` contains the instructions to download the random forest model. Model was too large to store in GitHub
+- **File:** `random_forest.pkl`
 - **Framework:** scikit-learn
 - **Purpose:** 
     - Selected for its high accuracy, ability to handle nonlinear relationships, and robustness to outliers.
@@ -46,6 +47,7 @@ The repository includes three models, each serving a distinct purpose:
   - **Min Samples Leaf (`min_samples_leaf`)**: 2
   - **Feature Selection:** Used **permutation importance** and **SHAP analysis**.
 #### 📊 **Performance**
+  - **Root Mean Squared Error (RMSE) :** '`0.0081`
   - **Mean Absolute Error (MAE):** `0.0073`
   - **R² Score:** `0.9997`
 **- **Features used:** **
@@ -68,7 +70,7 @@ The repository includes three models, each serving a distinct purpose:
 ---
 
 ### ✅ 2. **Linear Regression (Baseline Model)**
-- **Filename:** `linear_regression_model.pkl`
+- **Filename:** `linear_regression.pkl`
 - **Framework:** scikit-learn
 - **Purpose:**
    - Serves as a simple and interpretable baseline comparison.
@@ -104,8 +106,8 @@ The repository includes three models, each serving a distinct purpose:
 ---
 
 ### ✅ 3. **LSTM (Long Short-Term Memory Neural Network)**
-- **Filename:** `lstm_model.keras`
-- **Framework:** TensorFlow/Keras
+- **Filename:** `lstm_model.h5`
+- **Framework:** TensorFlow
 - **Purpose:**
    - Designed to capture short-term sequential pricing trends.
    - Evaluates how past airfare fluctuations affect future prices.
@@ -132,7 +134,7 @@ The repository includes three models, each serving a distinct purpose:
 
 | Model                            | Train-Test Split                 | Evaluation Metrics |
 |----------------------------------|---------------------------------|--------------------|
-| **Random Forest & Linear Regression** | **80% training, 10% validation, 10% test** | **MAE, R² Score** |
+| **Random Forest & Linear Regression** | **80% training, 10% validation, 10% test** | **RMSE, MAE, R² Score** |
 | **LSTM**                         | **Time-series split (80%-10%-10%)** | **MAE, R² Score** |
 
 ---
