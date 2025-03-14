@@ -3,6 +3,15 @@
 ## 📌 Overview
 This project aims to predict airfare prices for flights departing from **Los Angeles International Airport (LAX)** during peak **summer months (June–August)**. The goal is to develop a machine learning model that helps passengers identify the best time to book flights, using **historical pricing data and key influencing factors** such as seasonality, airline, route, demand, and time-to-departure.
 
+## 🔑 Key Features
+
+- 📊 **Predict Flight Prices**: Estimate airfare based on various factors such as airline, route, and demand.
+- 🏆 **Multiple Machine Learning Models**: Includes Random Forest (primary), LSTM (deep learning), and Linear Regression (baseline).
+- 🎯 **Feature Engineering**: Incorporates engineered features like historical fare trends, layover times, and price per mile.
+- 📈 **Performance Evaluation**: Provides metrics such as RMSE, MAE, and R² to compare model performance.
+- 📂 **Reproducibility**: Uses DVC and structured datasets to ensure results can be reproduced.
+
+
 ## 📂 Repository Structure
 ```
 Capstone-Project/
@@ -85,9 +94,20 @@ jupyter notebook notebooks/EvaluateModels.ipynb
 
 
 ## 📖 Documentation
-- **Dataset Documentation**
-- **Model Training Details**
-- **System Pipeline Overview**
+
+For more detailed information, refer to the following documentation files:
+
+- [Dataset Documentation](docs/dataset_documentation.md)
+- [Model Training Details](docs/model_documentation.md)
+- [System Pipeline Overview](docs/system_documentation.md)
+- [Final Capstone Report](https://docs.google.com/document/d/1zlrCbJNgQ6VekT92GfdOmIcjMWOdFHF4DTifY-yOa8Q/edit?usp=sharing)
+
+## ✍️ Contributions
+
+- **Camryn Curtis**: Organized the GitHub repository, conducted exploratory data analysis (EDA) and feature engineering, and provided supporting research for these processes. Also contributed to the final paper, appendix, and GitHub documentation.
+- **Allison Conrey**: Developed and ran the machine learning models, contributed research to support which models to explore, and worked on the final paper and GitHub documentation.
+- **Both authors** played integral roles in completing the project.
+
 
 ## 📌 Authors
 - **Allison Conrey** - [alconrey@ucsd.edu](mailto:alconrey@ucsd.edu)
@@ -118,6 +138,30 @@ Our model's success will be measured using:
 - **R-Squared (R²)** to measure variance explanation
 - **Feature Importance Analysis** to identify key drivers of price
 - **Comparison between Linear Regression, LSTM, and Random Forest** to assess trade-offs between interpretability and performance
+
+## 📊 Results
+
+### 1️⃣ Model Performance Summary
+Our experiments evaluated multiple machine learning models to predict airfare prices. Below are the key performance metrics:
+
+| Model            | RMSE   | MAE    | R² Score |
+|-----------------|--------|--------|----------|
+| 🏆 **Random Forest (Best Performing)** | 0.0081 | 0.0110 | 0.9997   |
+| 📏 **Linear Regression (Baseline Model)** | N/A    | 0.2250 | 0.4167   |
+| 🔄 **LSTM (Time-Series Model, Underperformed)** | N/A    | 120.76 | -0.0469  |
+
+### 2️⃣ Key Findings
+- ✅ **Random Forest performed the best**, achieving a near-perfect R² score (0.9997), meaning it can predict airfare prices with high accuracy.
+- 📉 **Linear Regression struggled**, indicating that airfare prices do not follow a purely linear trend.
+- ❌ **LSTM underperformed significantly**, suggesting that airfare prices **do not exhibit strong sequential dependencies**, making deep learning models less effective for this use case.
+- 📊 **Feature Importance Analysis** showed that `price per mile`, `previous day’s fare`, and `total travel distance` were the most influential factors in predicting ticket prices.
+- ✈️ **Seasonal trends were observed**, with higher fares around major holidays like **July 4th**.
+
+### 3️⃣ Implications
+- 🏷️ **Consumers**: Travelers can use this model to optimize booking decisions, helping them secure lower fares.
+- 🏢 **Industry Stakeholders**: Airlines and travel agencies can leverage these insights to refine dynamic pricing strategies.
+- 🔄 **Future Improvements**: Expanding the dataset to include multiple years and additional airports may further improve prediction accuracy.
+
 
 ## 📜 License
 This project is for educational purposes and follows an open-source approach.
