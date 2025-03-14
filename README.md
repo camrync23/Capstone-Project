@@ -36,8 +36,7 @@ Capstone-Project/
 │── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
 │   ├── DataExploration.ipynb     # Initial exploratory analysis
 │   ├── DataPreprocessing.ipynb   # Data cleaning & transformation
-│   ├── LSTMv1.ipynb              # LSTM model training and tuning version 1
-│   ├── LSTMv2.ipynb              # LSTM model training and tuning version 2
+│   ├── LSTM.ipynb                # LSTM model training 
 │   ├── LinearRegression.ipynb    # Linear regression experiments
 │   ├── RandomForestv1.ipynb      # Random forest training & hyperparameter tuning version 1
 │   ├── RandomForestv2.ipynb      # Random forest training & hyperparameter tuning version 2
@@ -82,7 +81,7 @@ jupyter notebook notebooks/EvaluateModels.ipynb
 |-----------------|--------|--------|----------|
 | Random Forest   | 0.0081 | 0.0110 | 0.9997   |
 | Linear Regression | N/A    | 0.2250 | 0.4167   |
-| LSTM            | N/A    | 120.37 | -0.0457  |
+| LSTM            | N/A    | 120.76 | -0.0469  |
 
 
 ## 📖 Documentation

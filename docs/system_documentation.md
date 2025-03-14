@@ -89,6 +89,8 @@ To successfully operate the system, the following tools and services **must** ex
    | pyarrow        | >=19.0   | Parquet storage               |
    | cramjam        | >=2.9    | Data compression              |
 
+   - **Download Dependencies:** All dependencies can be found in the requirements.txt file. 
+
 4. **Collaboration & Version Control**  
    - **Git** for source code versioning.  
    - **GitHub / GitLab** repository for team collaboration.  
@@ -171,8 +173,7 @@ Capstone-Project/
 │── notebooks/                    # Jupyter Notebooks for exploratory analysis and experiments
 │   ├── DataExploration.ipynb     # Initial exploratory analysis
 │   ├── DataPreprocessing.ipynb   # Data cleaning & transformation
-│   ├── LSTMv1.ipynb              # LSTM model training and tuning version 1
-│   ├── LSTMv2.ipynb              # LSTM model training and tuning version 2
+│   ├── LSTM.ipynb              # LSTM model training and tuning 
 │   ├── LinearRegression.ipynb    # Linear regression experiments
 │   ├── RandomForestv1.ipynb      # Random forest training & hyperparameter tuning version 1
 │   ├── RandomForestv2.ipynb      # Random forest training & hyperparameter tuning version 2

@@ -43,10 +43,13 @@ predictions = rf_model.predict(X_test)
 
 # Compute evaluation metrics
 mae = mean_absolute_error(y_test, predictions)
+rmse = np.sqrt(mean_squared_error(y_test, predictions))
 r2 = r2_score(y_test, predictions)
 
-print(f"Random Forest - MAE: {mae}")
-print(f"Random Forest - R² Score: {r2}")
+# Print evaluation results
+print(f"Random Forest - Test RMSE ($): {rmse:.4f}")
+print(f"Random Forest - Test MAE ($): {mae:.4f}")
+print(f"Random Forest - R² Score: {r2:.4f}")
 
 ```
 
@@ -106,12 +109,11 @@ print(f"LSTM - R² Score: {r2}")
 
 ```
 
-## 📊 **Model Performance Summary**
-| Model | MAE | R² Score |
-|--------|------|---------|
-| **Random Forest** | 0.0073 | 0.9997 |
-| **Linear Regression** | 0.2250 | 0.4167 |
-| **LSTM** | 120.37 | -0.0457 |
+| Model            | RMSE   | MAE    | R² Score |
+|-----------------|--------|--------|----------|
+| Random Forest   | 0.0081 | 0.0110 | 0.9997   |
+| Linear Regression | N/A    | 0.2250 | 0.4167   |
+| LSTM            | N/A    | 120.76 | -0.0469  |
 
 ## 📌 Model Versioning
 - **Current Version:** `v1.1`
