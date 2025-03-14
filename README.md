@@ -61,12 +61,8 @@ python models/random_forest_download.py
 ```
 
 ### 3️⃣ **Run the Model Evaluation**
-Use the provided notebook or script to evaluate the models:
-```sh
-# Run the evaluation script (CLI version)
-python evaluate_models.py
-```
-Or open the Jupyter Notebook:
+Use the provided notebook to evaluate the models:
+Open the Jupyter Notebook:
 ```sh
 jupyter notebook notebooks/EvaluateModels.ipynb
 ```
@@ -83,7 +79,7 @@ jupyter notebook notebooks/EvaluateModels.ipynb
 
 | Model           | MAE    | R² Score |
 |----------------|--------|----------|
-| Random Forest  | 0.0073 | 0.9997   |
+| Random Forest  | 0.0081 | 0.9997   |
 | Linear Regression | 0.2250 | 0.4167   |
 | LSTM           | 120.37 | -0.0457  |
 
