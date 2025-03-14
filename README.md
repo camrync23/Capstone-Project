@@ -146,7 +146,7 @@ Our experiments evaluated multiple machine learning models to predict airfare pr
 
 | Model            | RMSE   | MAE    | R² Score |
 |-----------------|--------|--------|----------|
-| 🏆 **Random Forest (Best Performing)** | 0.0081 | 0.0110 | 0.9997   |
+| 🏆 **Random Forest (Best Performing)** | 0.0081 | 0.00088 | 0.9997   |
 | 📏 **Linear Regression (Baseline Model)** | N/A    | 0.2250 | 0.4167   |
 | 🔄 **LSTM (Time-Series Model, Underperformed)** | N/A    | 120.76 | -0.0469  |
 

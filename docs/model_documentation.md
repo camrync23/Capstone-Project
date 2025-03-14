@@ -48,7 +48,7 @@ The repository includes three models, each serving a distinct purpose:
   - **Feature Selection:** Used **permutation importance** and **SHAP analysis**.
 #### 📊 **Performance**
   - **Root Mean Squared Error (RMSE) :** '`0.0081`
-  - **Mean Absolute Error (MAE):** `0.0073`
+  - **Mean Absolute Error (MAE):** `0.00088`
   - **R² Score:** `0.9997`
 **- **Features used:** **
   - Feature selection based on permutation importance and SHAP analysis.
